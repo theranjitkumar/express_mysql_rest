@@ -1,7 +1,7 @@
 var express = require('express');
 var mysql = require('mysql'); 
 var bodyParser = require('body-parser');
-var db = require('./sqlConnection'); //reference of sqlConnection.js  
+var db = require('./sqlConnection');
 var user = {  
     getAllUsers: function(callback) {
         return db.query("Select * from user", callback);  
