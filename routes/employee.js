@@ -30,8 +30,8 @@ r.post('/', function(req, res, next) {
     res.send({employee:rows});
   });
 });
-r.post('/', function(req, res, next) {
-  con.put('update into student(id, name, city)values(?,?,?)',[req.body.id,req.body.name,req.body.city],function(err, rows){
+r.put('/:id', function(req, res, next) {
+  con.query('update student set name=?,city=? where id=?',[req.body.name,req.body.city,req.params.id],function(err, rows){
     res.send({employee:rows});
   });
 });
