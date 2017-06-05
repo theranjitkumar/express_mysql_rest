@@ -12,27 +12,27 @@ app.use(bodyParser.urlencoded({ extended: false }));
 /* CURD actions.... */
 r.get('/', function(req, res, next) {
   con.query('select * from student',function(err, rows){
-    res.send({allEmployees:JSON.stringify(rows)});
+    res.send({allEmployees:rows});
   });
 });
 r.get('/:id', function(req, res, next) {
   con.query('select * from student where id=?',[req.params.id],function(err, rows){
-    res.send({employee:JSON.stringify(rows)});
+    res.send({employee:rows});
   });
 });
 r.delete('/:id', function(req, res, next) {
   con.query('delete from student where id=?',[req.params.id],function(err, rows){
-    res.send({employee:JSON.stringify(rows)});
+    res.send({employee:rows});
   });
 });
 r.post('/', function(req, res, next) {
   con.query('insert into student(id, name, city)values(?,?,?)',[req.body.id,req.body.name,req.body.city],function(err, rows){
-    res.send({employee:JSON.stringify(rows)});
+    res.send({employee:rows});
   });
 });
 r.post('/', function(req, res, next) {
   con.put('update into student(id, name, city)values(?,?,?)',[req.body.id,req.body.name,req.body.city],function(err, rows){
-    res.send({employee:JSON.stringify(rows)});
+    res.send({employee:rows});
   });
 });
 
